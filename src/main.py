@@ -1,7 +1,7 @@
 from pathlib import Path
-from src.nba_fetch import build_finals_table, build_series_tracker, get_finals_player_stats
-from src.data_cleaning import clean_finals_games, clean_player_stats
-from src.model_data import create_dimensions, create_fact_player_stats
+from src.data_loader import build_finals_table, build_series_tracker, get_finals_player_stats
+from src.data_cleaner import clean_finals_games, clean_player_stats
+from src.data_processor import create_dimensions, create_fact_player_stats
 
 def main():
     raw_dir = Path("data/raw")
