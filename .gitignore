@@ -12,4 +12,5 @@ __pycache__/
 .DS_Store
 
 # Output files
-outputs/
+outputs/__pycache__/
+.venv/
