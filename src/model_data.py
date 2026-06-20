@@ -48,7 +48,7 @@ def create_dimensions():
         ]
     ].drop_duplicates()
 
-    output = Path("data/model")
+    output = Path("data/models")
     output.mkdir(parents=True, exist_ok=True)
 
     dim_player.to_csv(output / "dim_player.csv", index=False)
@@ -69,7 +69,7 @@ def create_fact_player_stats():
         errors="ignore"
     )
 
-    output = Path("data/model")
+    output = Path("data/models")
     output.mkdir(parents=True, exist_ok=True)
 
     fact_player_stats.to_csv(output / "fact_player_stats.csv", index=False)
