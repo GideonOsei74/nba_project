@@ -5,7 +5,7 @@ import pandas as pd
 # ----------------------------
 # STEP 1: GET RAW PLAYOFF DATA
 # ----------------------------
-def get_playoff_games(season="2023-24"):
+def get_playoff_games(season="2025-26"):
     df = leaguegamefinder.LeagueGameFinder(season_nullable=season).get_data_frames()[0]
 
     df = df[df["GAME_ID"].str.startswith("004")]
@@ -16,7 +16,7 @@ def get_playoff_games(season="2023-24"):
 # STEP 2: BUILD CLEAN GAME TABLE
 # (2 teams per game enforced)
 # ----------------------------
-def build_games_table(season="2023-24"):
+def build_games_table(season="2025-26"):
     df = get_playoff_games(season)
 
     df = df[["GAME_ID", "TEAM_ABBREVIATION", "PTS"]]
@@ -86,7 +86,7 @@ def build_series_tracker(df):
     return pd.concat(results).sort_values("GAME_ID")
 
 
-def build_finals_table(season="2023-24"):
+def build_finals_table(season="2025-26"):
     games = build_games_table(season)
 
     # NBA Finals games are Round 4
@@ -94,7 +94,7 @@ def build_finals_table(season="2023-24"):
 
     return finals
 
-def get_finals_player_stats(season="2023-24"):
+def get_finals_player_stats(season="2025-26"):
     finals = build_finals_table(season)
 
     all_players = []
